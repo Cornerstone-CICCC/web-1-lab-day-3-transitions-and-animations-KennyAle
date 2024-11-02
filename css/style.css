@@ -6,17 +6,30 @@ body {
   margin: 0;
 }
 
-
-#triangle {
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 50px solid green;
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  height: 100vh;
 }
-
-.container div:nth-child(1) {
+.container > div {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #333;
+}
+.container > div:nth-child(1) {
+  position: relative;
+}
+.container > div:nth-child(2) {
+  position: relative;
+}
+.container button {
+  padding: 0.75rem 1rem;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
 }
 
 #btn1 {
@@ -29,17 +42,12 @@ body {
   transform: translate(-50%, -50%);
   transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out, background-color 300ms ease-in-out;
 }
-
 #btn1:hover {
   transform: translate(-60%, -60%);
   box-shadow: 10px 10px black;
   background-color: #f0f0f0;
   color: black;
   border: 1px solid black;
-}
-
-.container div:nth-child(2) {
-  position: relative;
 }
 
 #btn2 {
@@ -52,20 +60,17 @@ body {
   transition: transform 200ms ease-in-out, background-color 200ms ease-in-out;
   z-index: 1;
 }
-
 #btn2:hover {
   transform: translate(-60%, -60%);
   background-color: #f0f0f0;
   color: black;
   border: 1px solid black;
 }
-
 #btn2:hover::after {
   transform: translate(-43%, -30%);
 }
-
 #btn2::after {
-  content: ' ';
+  content: " ";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -85,17 +90,14 @@ body {
   position: relative;
   overflow: hidden;
 }
-
 #btn3:hover {
   background-color: #04be04;
 }
-
 #btn3:hover::after {
   left: 105%;
 }
-
 #btn3::after {
-  content: ' ';
+  content: " ";
   position: absolute;
   top: -10%;
   left: -12%;
@@ -114,17 +116,14 @@ body {
   position: relative;
   transition: background-color 400ms;
 }
-
 #shape1:hover {
   background-color: yellow;
 }
-
 #shape1:hover::after {
   opacity: 1;
 }
-
 #shape1::after {
-  content: 'Hello!';
+  content: "Hello!";
   position: absolute;
   font-size: 2rem;
   top: 50%;
@@ -137,7 +136,6 @@ body {
 #figure1 {
   position: relative;
 }
-
 #figure1 figcaption {
   background-color: pink;
   position: absolute;
@@ -146,18 +144,15 @@ body {
   z-index: -1;
   transition: bottom 200ms;
 }
-
 #figure1:hover img {
   filter: grayscale(0%);
   transition: filter 200ms;
 }
-
-#figure1:hover img {
-  filter: grayscale(100%);
-}
-
 #figure1:hover figcaption {
   bottom: -8%;
+}
+#figure1 img {
+  filter: grayscale(100%);
 }
 
 #shape2 {
@@ -175,61 +170,38 @@ body {
   0% {
     top: 0%;
     left: 0%;
-    clip-path: polygon(75px 75px 75px 75px);
-    transition: clip-path 3s;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0);
     background-color: red;
+    border-radius: 0;
   }
-  
   25% {
     top: 0%;
     left: calc(100% - 75px);
-    clip-path: circle(50% at 50% 50%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0);
     background-color: green;
+    border-radius: 50%;
   }
-  
   50% {
     top: calc(100% - 75px);
     left: calc(100% - 75px);
-    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    clip-path: polygon(50% 0%, 100% 100%, 0 100%, 0 100%, 50% 0%);
     background-color: brown;
+    border-radius: 0;
   }
-  
   75% {
     top: calc(100% - 75px);
     left: 0%;
-    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
     background-color: yellow;
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0 38%);
+    border-radius: 0;
   }
-  
   100% {
     top: 0%;
     left: 0%;
-    clip-path: polygon(75px 75px 75px 75px);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0);
     background-color: red;
+    border-radius: 0;
   }
-}
-
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  height: 100vh;
-}
-
-.container>div {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #333;
-}
-
-.container button {
-  padding: 0.75rem 1rem;
-  border: none;
-  cursor: pointer;
-  font-size: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
